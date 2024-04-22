@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 @Component({
   selector: 'app-three-scene',
@@ -33,7 +33,7 @@ export class ThreeSceneComponent implements OnInit {
 
   setupScene(): void {
     this.scene.background = null;
-    this.camera.position.set(0, 0, 5);
+    this.camera.position.set(0, 0, 25);
   }
 
   setupLights(): void {
@@ -63,7 +63,7 @@ export class ThreeSceneComponent implements OnInit {
     loader.load('assets/notorius/scene.gltf', (gltf) => {
       this.mixer = new THREE.AnimationMixer(gltf.scene);
       this.head = gltf.scene.children[0];
-      this.head.scale.set(1, 1, 1);
+      this.head.scale.set(5, 5, 5);
       this.startPosX = this.head.rotation.x;
       this.startPosY = this.head.rotation.y;
       this.initialCarScale = this.head.scale.clone();
